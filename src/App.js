@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import useLagRadar from "./useLagRadar";
+import React from "react";
+import ReactDOM from "react-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Area from "./components/Area";
+import Band from "./components/Band";
+import Bar from "./components/Bar";
+import BarStacked from "./components/BarStacked";
+import Bubble from "./components/Bubble";
+import CustomStyles from "./components/CustomStyles";
+import DarkMode from "./components/DarkMode";
+import DynamicContainer from "./components/DynamicContainer";
+import InteractionMode from "./components/InteractionMode";
+import Line from "./components/Line";
+import MultipleAxes from "./components/MultipleAxes";
+import Steam from "./components/Steam";
+import BarHorizontal from "./components/BarHorizontal";
+import BarHorizontalStacked from "./components/BarHorizontalStacked";
+import SparkChart from "./components/SparkChart";
+import SyncedCursors from "./components/SyncedCursors";
+import StressTest from "./components/StressTest";
+
+
+const components = [
+    ["Line", Line],
+    ["Bar", Bar],
+    ["Bar (Stacked)", BarStacked],
+    ["Bar (Horizontal)", BarHorizontal],
+    ["Bar (Horizontal + Stacked)", BarHorizontalStacked],
+    ["Band", Band],
+    ["Area", Area],
+    ["Bubble", Bubble],
+    ["Steam", Steam],
+    ["Spark Chart", SparkChart],
+    ["Multiple Axes", MultipleAxes],
+    ["Interaction Modes", InteractionMode],
+    ["Dark Mode", DarkMode],
+    ["Dynamic / Overflow Container", DynamicContainer],
+    ["Custom Styles", CustomStyles],
+    ["Synced Cursors", SyncedCursors],
+    ["Stress Test", StressTest],
+];
+
+export default function App() {
+
+    return ( <
+        div > {
+            components.map(([label, Comp]) => {
+                return ( <
+                    div key = { label + "" } >
+                    <
+                    h1 > { label } < /h1> <
+                    div >
+                    <
+                    Comp / >
+                    <
+                    /div> <
+                    /div>
+                );
+            })
+        } <
+        div style = {
+            { height: "50rem" } }
+        /> <
+        /div>
+    );
 }
-
-export default App;
